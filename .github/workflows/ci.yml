@@ -31,7 +31,7 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          tag: v1.0.0
+          tag_name: v1.0.0
           files: edk2/Build/AndroidBootPkg/RELEASE_GCC5/AARCH64/AndroidBootPkg/Application/C0DEADDED/C0DEADDED/OUTPUT/C0DEADDED.efi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

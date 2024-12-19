@@ -1,0 +1,13 @@
+[Defines]
+  DEC_SPECIFICATION = 0x00010005
+  PACKAGE_NAME      = AndroidBootPkg
+  PACKAGE_GUID      = 5f8c9e4d-6d3f-4f42-8890-969a6d24c3d0
+  PACKAGE_VERSION   = 0.1
+
+[Includes]
+
+[Protocols]
+
+[Guids]
+
+[LibraryClasses]

@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Checkout edk2
+        uses: actions/checkout@v2
+        with:
+          repository: tianocore/edk2
+          path: edk2
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential uuid-dev iasl git gcc-aarch64-linux-gnu python3-distutils
+
+      - name: Build
+        run: make
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag: v1.0.0
+          files: edk2/Build/AndroidBootPkg/RELEASE_GCC5/AARCH64/AndroidBootPkg/Application/C0DEADDED/C0DEADDED/OUTPUT/C0DEADDED.efi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -26,7 +26,7 @@ jobs:
           sudo apt-get install -y build-essential uuid-dev iasl git gcc-aarch64-linux-gnu python3-distutils gcc-aarch64-linux-gnu
 
       - name: Build
-        run: make
+        run: export GCC5_AARCH64_PREFIX=aarch64-linux-gnu- && make
 
       - name: Create Release
         uses: softprops/action-gh-release@v1

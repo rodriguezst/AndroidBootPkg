@@ -30,8 +30,8 @@ UefiMain (
   // Write the magic keyword at 0x17FE00000 address
   *(volatile UINT64*)0x17FE00000 = 0xC0DEADDED;
 
-  // Stall for 10 seconds
-  gBS->Stall(10000000);
+  // Stall for 0.5 seconds
+  gBS->Stall(500000);
 
   // Perform a warm reset
   gRT->ResetSystem(
